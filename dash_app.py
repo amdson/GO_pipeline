@@ -5,11 +5,16 @@ import dash_core_components as dcc
 import time
 import plotly.express as px
 from dash.dependencies import Input, Output
+import logging
+import os
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + '/app.log'), level=logging.DEBUG)
+logging.error("dash app test message + more")
+
 def initialize_dash_app(name, server, analysis_content_dict, url_base_pathname="/results/"):
-    dash_app = dash.Dash(name, server=server, routes_pathname_prefix=url_base_pathname, requests_pathname_prefix = "/results/", external_stylesheets=external_stylesheets)
-    print("dash app config", dash_app.config)
+    dash_app = dash.Dash(name, server=server, routes_pathname_prefix=url_base_pathname, requests_pathname_prefix="/~llp/flask/results/", external_stylesheets=external_stylesheets)
+    #dash_app.config.requests_pathname_prefix = '/~llp/flask/'
     dash_app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.H1(children='Dataset Results'),

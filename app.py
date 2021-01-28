@@ -5,8 +5,9 @@ import logging
 import os
 from pipeline_app.dash_app import initialize_dash_app
 
-logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + 'app.log'), level=logging.DEBUG)
-logging.error("test message")
+logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + '/app.log'), level=logging.DEBUG)
+logging.error("test message + more")
+logging.debug("this should really be working")
 
 app = Flask(__name__)
 
@@ -55,6 +56,7 @@ def save_form():
 @app.route('/server', methods=['GET', 'POST'])
 def process_sequence():
     print("recieved post request")
+    logging.error("recieved post request")
     if request.method == 'POST':
         form_hash = list(request.form.to_dict().keys())[0]
         print(form_hash)

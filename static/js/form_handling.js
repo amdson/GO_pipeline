@@ -21,7 +21,6 @@ document.getElementById('dataset_form').onsubmit = function(event) {
     return false; 
 };
 
-
 function get_results_path() {
     var dataset_form = document.getElementById("dataset_form");
     var inputs = dataset_form.elements;
@@ -31,9 +30,9 @@ function get_results_path() {
         form_string = form_string + inputs[i].outerHTML;
     }
     console.log(form_string);
-    string_hash = cyrb53(form_string);
-    console.log("string hash", string_hash);
-    return '/results/' + string_hash;
+    string_hash = cyrb53(form_string)
+    console.log("string hash", string_hash)
+    return '/~llp/flask/results/' + string_hash
 }
 
 const cyrb53 = function(str, seed = 0) {
