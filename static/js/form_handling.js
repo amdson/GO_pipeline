@@ -14,6 +14,7 @@ document.getElementById('dataset_form').onsubmit = function() {
     string_hash = cyrb53(form_string)
     console.log("string hash", string_hash)
     form_content_id.value = string_hash;
+    alert("set id value to " + string_hash);
 };
 
   function get_results_path() {
@@ -27,7 +28,7 @@ document.getElementById('dataset_form').onsubmit = function() {
     console.log(form_string);
     string_hash = cyrb53(form_string)
     console.log("string hash", string_hash)
-    return '/results/' + string_hash
+    return '/~llp/flask/results/' + string_hash
 }
 
 // document.getElementById("form_submit").addEventListener("click", generateFormCode);

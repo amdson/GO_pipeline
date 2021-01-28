@@ -42,7 +42,7 @@
                         console.log(form_string);
                         string_hash = cyrb53(form_string)
                         console.log("string hash", string_hash)
-                        return '/results/' + string_hash
+                        return '/~llp/flask/results/undefined'
                     }
 
                     const cyrb53 = function(str, seed = 0) {
@@ -58,7 +58,7 @@
                     };
                 </script>
 
-                <form id="dataset_form", target="_blank", action="/server" method="post"> 
+                <form id="dataset_form", target="_blank", action="/~llp/flask/server" method="post"> 
                     <input id="form_content_id" name="form_content_id" type="hidden" value="UNINITIALIZED">
                     <div class="checkbox_entry">
                         <ul>
