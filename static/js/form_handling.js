@@ -16,7 +16,7 @@ document.getElementById('dataset_form').onsubmit = function(event) {
     console.log("form entries", form_entries); 
 
     $.post("/save_form", form_entries, function(data, status){
-        window.open("/loading_page/" + string_hash, '_blank');
+        window.open("/~llp/flask/loading_page/" + string_hash, '_blank');
       });
     return false; 
 };
