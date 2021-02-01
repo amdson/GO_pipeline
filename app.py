@@ -56,7 +56,7 @@ def save_form():
 @app.route('/server', methods=['GET', 'POST'])
 def process_sequence():
     print("recieved post request")
-    logging.error("recieved post request")
+    logging.error("recieved post request to server")
     if request.method == 'POST':
         form_hash = list(request.form.to_dict().keys())[0]
         print(form_hash)
@@ -64,9 +64,9 @@ def process_sequence():
         req_dict = form_data[form_hash]
         logging.debug(req_dict)
         print(req_dict)
-        print("parsing request\n\n\n\n")
+        logging.debug("parsing request\n\n\n\n")
         input_dict = construct_prot_dict(req_dict)
-        print(input_dict)
+        logging.debug(input_dict)
 
         root_path = os.path.abspath(os.path.dirname(__file__))
         # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
